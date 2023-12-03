@@ -1,8 +1,9 @@
 /*
 Single Responsiblity Principle means that one class should have one and only one responsibility. And only one actor(for one thing) should use that class.
- */
+*/
 
 class shape {
+
     public void calculateArea() {
 
     }
@@ -14,7 +15,9 @@ class shape {
 }
 /*
 Above Shape class have methods that belong to only shape.
- */
+*/
+
+//==========================================================================================================================================
 
 class shapeCalculator {
 
@@ -23,12 +26,85 @@ class shapeCalculator {
 
     }
 
-    //but this class print the data in string
-    public String printInString() {
+    //breaking SRS
+    public String printInJSON() {
         return "data in string"
     }
 
 }
 /*
 Above ShapeCalculator class have two methods.
- */
+
+printInString(): This method print in JSON. Which is different then doing calculation. And it will be used where u need to print the data in JSON format. So another actor is going to be using this method so u have to define this menthod in andother class.
+
+
+FIX:
+*/
+
+class shapeCalculator {
+
+    // this method helps to do calculations on shape
+    public void calculateArea() {
+
+    }
+}
+
+class shapePrint{
+
+    //Not-breaking SRS
+    public String printInJSON() {
+        return "data in string"
+    }
+}
+
+//==========================================================================================================================================
+
+class Employee {
+
+    private void getEmployeesDetails(String employee) {
+
+    }
+
+    public void hireEmployee(String employee) {
+
+    }
+
+    public void getSalary(String employee) {
+
+    }
+
+    public void getStatus(String employee) {
+
+    }
+
+    public void evoluateEmployee(String employee) {
+
+    }
+}
+
+/*
+Employee class only contains methods related to employee. Yet it is breaking SRS....how?
+
+class Employee{
+
+    private void getEmployeesDetails(String employee){
+
+    }
+    public void hireEmployee(String employee){      => used by HR
+
+    }
+    public void getSalary(String employee){         => used by financial team
+
+    }
+    public void getStatus(String employee){         =>  used by manager
+
+    }
+    public void evoluateEmployee(String employee){  => used by
+
+    }
+
+Even though this employee class have only employees related methods but the actors that are using this class is 4.
+
+
+
+*/
