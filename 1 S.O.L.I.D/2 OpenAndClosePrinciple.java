@@ -70,7 +70,7 @@ class Biryani implements IFood{
 }
 //........ more dished with foodI implemented
 
-
+//now every time a food is added. create a class and and implemnt the IFood interface
 class AlluParatha implements IFood{
 
     @Override
@@ -80,8 +80,9 @@ class AlluParatha implements IFood{
     }
 }
 
-class RestaurantWithOCP {
 
+class RestaurantWithOCP {
+    //now u have dont have to modify the code of serving even after we add a new meal to resturent
     public void serveFood(IFood order){
        var myOrder=order.cheifCook();
     }
@@ -98,3 +99,7 @@ class Main {
         restaurantWithOCP.serveFood(new Pizza());
     }
 }
+
+/*
+
+ */
