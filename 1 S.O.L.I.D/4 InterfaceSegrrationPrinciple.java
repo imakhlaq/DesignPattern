@@ -49,6 +49,12 @@ class MainISP {
         Here we have separated one interface into multiple interface. So we don't have to implement those methods that are not needed in the class.
 
 
+        Now subclass can be replaced by the super class. So this will validate the Liskov Substitution Principle.
+
+        IMechanicalCat (superclass/interface)  == MechanicalCatISP (subclass)
+        IPetCat (superclass/interface)  == PetCatISP (subclass)
+
+
          */
 
     }

@@ -50,6 +50,10 @@ class MainLSP {
         /*
         Here subclass can't be replaced with superclass.
 
+        ICat (superclass/interface)  == MechanicalCat (subclass)  =====>❌
+        ICat (superclass/interface)  == PetCat (subclass)         =====>✅
+
+
         ICat (superclass) cant replace MechanicalCat (subclass) because mechanical cat can't drink Milk. So we are breaking the Liskov Substitution.
         The solution is I (Interface Segregation Principle ) in S.O.L.I.D
         */
