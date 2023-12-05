@@ -35,3 +35,24 @@ class MechanicalCat implements ICat {
         throw new RuntimeException("Mechanical cat can/'t drink milk");
     }
 }
+
+class MainLSP {
+    public static void main(String[] args) {
+
+        ICat petCat = new PetCat();
+        ICat mechanicalCat = new MechanicalCat();
+
+        petCat.meow();
+        petCat.drinkMilk();
+
+        mechanicalCat.meow();
+        mechanicalCat.drinkMilk();
+        /*
+        Here subclass can't be replaced with superclass.
+
+        ICat (superclass) cant replace MechanicalCat (subclass) because mechanical cat can't drink Milk. So we are breaking the Liskov Substitution.
+        The solution is I (Interface Segregation Principle ) in S.O.L.I.D
+        */
+
+    }
+}

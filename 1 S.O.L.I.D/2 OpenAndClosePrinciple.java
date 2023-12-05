@@ -4,18 +4,16 @@ Open/Close Principle State that a class should be open for extension/new feature
 
 class Restaurant {
 
-    public void serveFood(String order){
-        if (order.toLowerCase().equals("pizza")==true){
+    public void serveFood(String order) {
+        if (order.toLowerCase().equals("pizza") == true) {
             System.out.println("Tell cheif cook to cook piza");
-        }
-        else if (order.toLowerCase().equals("biryani")==true){
+        } else if (order.toLowerCase().equals("biryani") == true) {
             System.out.println("Tell cheif cook to cook biryani");
-        }
-        else if (order.toLowerCase().equals("roasted")==true){
+        } else if (order.toLowerCase().equals("roasted") == true) {
             System.out.println("Tell cheif cook to cook roasted");
         }
     }
-    
+
 }
 
 /*
@@ -50,17 +48,17 @@ interface IFood {
     String cheifCook();
 }
 
-class Pizza implements IFood{
+class Pizza implements IFood {
 
     @Override
     public String cheifCook() {
-       //code to cook pizza
+        //code to cook pizza
         return "cook piza";
 
     }
 }
 
-class Biryani implements IFood{
+class Biryani implements IFood {
 
     @Override
     public String cheifCook() {
@@ -71,7 +69,7 @@ class Biryani implements IFood{
 //........ more dished with foodI implemented
 
 //now every time a food is added. create a class and and implemnt the IFood interface
-class AlluParatha implements IFood{
+class AlluParatha implements IFood {
 
     @Override
     public String cheifCook() {
@@ -83,16 +81,16 @@ class AlluParatha implements IFood{
 
 class RestaurantWithOCP {
     //now u have dont have to modify the code of serving even after we add a new meal to resturent
-    public void serveFood(IFood order){
-       var myOrder=order.cheifCook();
+    public void serveFood(IFood order) {
+        var myOrder = order.cheifCook();
     }
 
 }
 
-class Main {
+class MainOCP {
     public static void main(String[] args) {
 
-        var restaurantWithOCP=new RestaurantWithOCP();
+        var restaurantWithOCP = new RestaurantWithOCP();
         restaurantWithOCP.serveFood(new Pizza());
         restaurantWithOCP.serveFood(new AlluParatha());
         restaurantWithOCP.serveFood(new Biryani());
