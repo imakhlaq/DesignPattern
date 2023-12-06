@@ -15,22 +15,59 @@ class Actor {
 }
 
 class Director {
-    public void hireActor() {
+    public void hireDirector() {
         System.out.println("Hired an Director");
     }
 
 }
 
 class Producer {
-    public void hireActor() {
+    public void hireProducer() {
         System.out.println("Hired an Actor");
     }
 
 }
 
 class Writer {
-    public void hireActor() {
+    public void hireWriter() {
         System.out.println("Hired an Actor");
     }
 
 }
+
+
+//now moviemaker is needed to hire the all people
+
+
+class MovieMaker {
+
+    public void makeMovie() {
+
+        var actor = new Actor();
+        var director = new Director();
+        var producer = new Producer();
+        var writer = new Writer();
+
+        actor.hireActor();
+        director.hireDirector();
+        producer.hireProducer();
+        writer.hireWriter();
+
+
+        /*
+        Breaking Open Close Principle too
+        var dancer = new dancer();
+        dancer.hireDancer();
+
+         */
+
+    }
+
+}
+
+/*now our MovieMaker class which is a higher level class is dependent on these low level classes like Actor, Director, Producer, Writer.
+So it's breaking the Dependency inversion principle.
+
+
+MovieMaker class is also breaking the Open Close Principle. Because if u want to hire a Dancer now u have to modify the makeMovie()
+ */
