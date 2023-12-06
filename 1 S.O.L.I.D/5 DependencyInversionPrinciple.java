@@ -82,8 +82,8 @@ interface IMovieMaker {
     void hirePeople();
 }
 
+//Low level classes
 class ActorDIP implements IMovieMaker {
-
 
     @Override
     public void hirePeople() {
@@ -116,6 +116,8 @@ class WriterDIP implements IMovieMaker {
     }
 }
 
+
+//High level class
 class MovieMakerDIP {
 
     public void makeMovie(IMovieMaker movieMaker) {
@@ -146,3 +148,19 @@ class Main {
 
     }
 }
+
+
+/*
+                                    MovieMakerDIP (High level class)
+                                          |
+                                          |
+                                     IMovieMaker      (Interface)
+                                          |
+                                          |
+                ActorDIP               DirectorDIP           ProducerDIP (Low level classes)
+
+eg: Always remember that if a company CEO want to talk to employees he has to do with using the managers
+of each office.
+
+
+ */
