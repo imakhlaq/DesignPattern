@@ -1,5 +1,28 @@
 /*
 Liskov Substitution Principle states that sub/child class can be replaced by super/parent class.
+
+
+
+It is way too test IS-A (inheritance) relationship.
+
+
+
+Animal
+  |
+Insect
+  |
+Snail
+
+
+if one thing is true for something it has to be true for all its descendants. Like if Animal can speak
+and snail, which is child of animal have to have speak property. Or inheritance there is not valid.
+
+
+That why most of the time we look for composition not inheritance. Because in composition it's not
+required that container should have all properties.
+
+It means loosely coupled relations stick together.
+
  */
 
 interface ICat {
