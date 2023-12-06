@@ -115,3 +115,14 @@ class WriterDIP implements IMovieMaker {
         System.out.println("Hired an Actor");
     }
 }
+
+class MovieMakerDIP {
+
+    public void makeMovie(IMovieMaker movieMaker) {
+        movieMaker.hirePeople();
+    }
+}
+
+/*
+Now there is no dependency between the low level classes and high level class.
+ */
