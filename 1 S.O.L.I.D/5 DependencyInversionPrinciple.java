@@ -65,9 +65,53 @@ class MovieMaker {
 
 }
 
-/*now our MovieMaker class which is a higher level class is dependent on these low level classes like Actor, Director, Producer, Writer.
+/*now our MovieMaker class which is a higher level class is dependent on these low level classes like
+ Actor, Director, Producer, Writer.
+
 So it's breaking the Dependency inversion principle.
 
 
-MovieMaker class is also breaking the Open Close Principle. Because if u want to hire a Dancer now u have to modify the makeMovie()
+MovieMaker class is also breaking the Open Close Principle. Because if u want to hire a Dancer now
+u have to modify the makeMovie()
  */
+
+
+//FIX
+
+interface IMovieMaker {
+    void hirePeople();
+}
+
+class ActorDIP implements IMovieMaker {
+
+
+    @Override
+    public void hirePeople() {
+        System.out.println("Hired Actor");
+
+    }
+}
+
+class DirectorDIP implements IMovieMaker {
+
+    @Override
+    public void hirePeople() {
+        System.out.println("Hired an Director");
+    }
+}
+
+class ProducerDIP implements IMovieMaker {
+
+    @Override
+    public void hirePeople() {
+        System.out.println("Hired an Actor");
+    }
+}
+
+class WriterDIP implements IMovieMaker {
+
+    @Override
+    public void hirePeople() {
+        System.out.println("Hired an Actor");
+    }
+}
