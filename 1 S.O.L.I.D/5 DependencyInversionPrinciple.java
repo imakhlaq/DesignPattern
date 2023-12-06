@@ -120,9 +120,29 @@ class MovieMakerDIP {
 
     public void makeMovie(IMovieMaker movieMaker) {
         movieMaker.hirePeople();
+
+        /*
+       Now OCP is also not breaking
+         */
     }
 }
 
 /*
 Now there is no dependency between the low level classes and high level class.
  */
+
+class Main {
+    public static void main(String[] args) {
+        MovieMakerDIP movieMakerDIP = new MovieMakerDIP();
+
+        movieMakerDIP.makeMovie(new ActorDIP());
+        movieMakerDIP.makeMovie(new ProducerDIP());
+        movieMakerDIP.makeMovie(new WriterDIP());
+
+            /*
+       movieMakerDIP.makeMovie(new DancerDIP());
+
+         */
+
+    }
+}
