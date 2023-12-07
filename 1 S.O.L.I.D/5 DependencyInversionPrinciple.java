@@ -151,10 +151,10 @@ class Main {
 
 
 /*
-                                    MovieMakerDIP (High level class)
+                                    MovieMakerDIP (High level class)(class having main purpose)
                                           |
                                           |
-                                     IMovieMaker      (Interface)
+                                     IMovieMaker      (Abstraction)
                                           |
                                           |
                 ActorDIP               DirectorDIP           ProducerDIP (Low level classes)
