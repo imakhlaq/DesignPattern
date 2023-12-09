@@ -7,7 +7,7 @@ class shape {
     public void calculateArea() {
 
     }
-    
+
     public String printInString() {
         return "data in string";
     }
@@ -103,7 +103,8 @@ class Employee{
 
     }
 }
-Even though this employee class have only employees related methods but 4 actors are going to use these method. So multiple actor like HR, Financial team, Manager are going to access these methods so this break the single responsibility principle.
+Even though this employee class have only employees related methods but 4 actors are going to use these method.
+So multiple actor like HR, Financial team, Manager are going to access these methods so this break the single responsibility principle.
 
 */
 
