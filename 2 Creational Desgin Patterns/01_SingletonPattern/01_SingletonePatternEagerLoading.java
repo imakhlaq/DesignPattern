@@ -1,7 +1,7 @@
 class LoggerEagerLoading {
 
     //at time of class loading creating instance
-    private static LoggerEagerLoading loggerEagerLoading = new LoggerEagerLoading();
+    private static final LoggerEagerLoading loggerEagerLoading = new LoggerEagerLoading();
 
     public static LoggerEagerLoading getInstance() {
         return LoggerEagerLoading.loggerEagerLoading;
