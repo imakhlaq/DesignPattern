@@ -8,11 +8,10 @@ class LoggerThreadSafe {
         LoggerThreadSafe singleton = LoggerThreadSafe.instance;
 
         if (singleton == null) {
-
-            singleton = LoggerThreadSafe.instance;
-
+            
             synchronized (object) {
-                
+                singleton = LoggerThreadSafe.instance;
+
                 if (singleton == null) {
                     instance = singleton = new LoggerThreadSafe();
                 }
