@@ -1,4 +1,7 @@
 
+// Lazy loading
+
+
 class Logger {
 
     // to store the instance of the Logger
