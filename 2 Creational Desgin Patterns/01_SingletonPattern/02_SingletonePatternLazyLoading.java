@@ -2,27 +2,27 @@
 // Lazy loading
 
 
-class Logger {
+class LoggerLazyLoading {
 
     // to store the instance of the Logger
-    private static Logger singleInstance;
+    private static LoggerLazyLoading singleInstance;
 
     String loggerFilePath;
 
     // private constructor to restrict the creation of object from outside the class
-    private Logger(String loggerFilePath) {
+    private LoggerLazyLoading(String loggerFilePath) {
         this.loggerFilePath = loggerFilePath;
     }
 
     // static method to get the instance of the logger class
-    public static Logger getInstance(String loggerFilePath) {
+    public static LoggerLazyLoading getInstance(String loggerFilePath) {
 
         //checking if instance already exits
-        if (Logger.singleInstance != null) return Logger.singleInstance;
+        if (LoggerLazyLoading.singleInstance != null) return LoggerLazyLoading.singleInstance;
 
         //if not create and store in class and return
-        Logger.singleInstance = new Logger(loggerFilePath);
-        return Logger.singleInstance;
+        LoggerLazyLoading.singleInstance = new LoggerLazyLoading(loggerFilePath);
+        return LoggerLazyLoading.singleInstance;
     }
 
     public void debug(String data) {
@@ -35,7 +35,7 @@ class SingletonPattern {
     public static void main(String[] args) {
 
         //creating instance using static method
-        Logger log = Logger.getInstance("F:data");
+        LoggerLazyLoading log = LoggerLazyLoading.getInstance("F:data");
         log.debug("logg here");
     }
 }
