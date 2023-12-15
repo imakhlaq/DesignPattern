@@ -14,8 +14,10 @@ class Logger {
     // static method to get the instance of the logger class
     public static Logger getInstance(String loggerFilePath) {
 
+        //checking if instance already exits
         if (this.singleInstance != null) return this.singleInstance;
 
+        //if not create and store in class and return
         this.singleInstance = new Logger(loggerFilePath);
         return this.singleInstance;
     }
@@ -28,6 +30,8 @@ class Logger {
 
 class SingletonePattern {
     public static void main(String[] args) {
+
+        //creating instance using static method
         Logger log = Logger.getInstance("F:data");
         log.debugg("logg here");
     }
