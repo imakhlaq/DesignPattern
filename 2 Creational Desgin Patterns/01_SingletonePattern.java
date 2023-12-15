@@ -1,12 +1,12 @@
 
 class Logger {
 
+    // to store the instance of the Logger
+    private static Logger singleInstance;
+
     String loggerFilePath;
 
-    // to store the instance of the Logger
-    Logger singleInstance;
-
-    // private constructor to restrict the creation of object from outside of the class
+    // private constructor to restrict the creation of object from outside the class
     private Logger(String loggerFilePath) {
         this.loggerFilePath = loggerFilePath;
     }
@@ -15,24 +15,24 @@ class Logger {
     public static Logger getInstance(String loggerFilePath) {
 
         //checking if instance already exits
-        if (this.singleInstance != null) return this.singleInstance;
+        if (Logger.singleInstance != null) return Logger.singleInstance;
 
         //if not create and store in class and return
-        this.singleInstance = new Logger(loggerFilePath);
-        return this.singleInstance;
+        Logger.singleInstance = new Logger(loggerFilePath);
+        return Logger.singleInstance;
     }
 
-    public void debugg(String data) {
+    public void debug(String data) {
         System.out.println(data);
     }
 }
 
 
-class SingletonePattern {
+class SingletonPattern {
     public static void main(String[] args) {
 
         //creating instance using static method
         Logger log = Logger.getInstance("F:data");
-        log.debugg("logg here");
+        log.debug("logg here");
     }
 }
