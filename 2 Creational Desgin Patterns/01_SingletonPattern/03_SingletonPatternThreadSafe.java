@@ -35,6 +35,7 @@ class LoggerThreadSafe {
 
     public static LoggerThreadSafe getInstance() {
 
+        //this increase performance by margin
         LoggerThreadSafe singleton = LoggerThreadSafe.instance;
 
         if (singleton == null) {
