@@ -30,6 +30,7 @@ class GoldCard implements ICard {
     }
 }
 
+//u can replace with an Interface too
 abstract class Factory {
     protected abstract ICard createFactory();
 
@@ -60,7 +61,7 @@ class MainFactoryMethod {
 
         if (cardType.equalsIgnoreCase("gold")) {
             ICard card = new PlatinumCardFactory().createFactory();
-            
+
         } else if (cardType.equalsIgnoreCase("platinum")) {
             ICard card = new GoldCardFactory().createFactory();
 
