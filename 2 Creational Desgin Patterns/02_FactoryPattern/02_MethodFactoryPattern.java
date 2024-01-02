@@ -39,6 +39,7 @@ abstract class Factory {
     }
 }
 
+//this will create abstraction over the Factory
 class PlatinumCardFactory extends Factory {
 
     @Override
