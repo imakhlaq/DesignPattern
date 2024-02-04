@@ -1,29 +1,47 @@
 class House {
 
+    // STEP => 1
     //mandatory attribute
     String brick;
     String cement;
     String sand;
 
+    // STEP => 2
     //optional attribute
     String paint;
     String floor;
     String fridge;
 
+    // STEP => 10
+    //constructor that will get HouseBuilder object and using that object you set all the attributes
+    // HouseBuilder object will contain all the mandatory and optional attributes.
+    // missing optional attributes will be NULL
+    private House(HouseBuilder houseBuilder) {
+        this.brick = houseBuilder.brick;
+        this.cement = houseBuilder.cement;
+        this.sand = houseBuilder.sand;
+        this.floor = houseBuilder.floor;
+        this.paint = houseBuilder.paint;
+        this.fridge = houseBuilder.fridge;
+    }
 
+    // STEP => 3
     public static class HouseBuilder {
 
+        // STEP => 4
         // copy above attributes
         //mandatory attribute
         String brick;
         String cement;
         String sand;
 
+        // STEP => 5
         //optional attribute
         String paint;
         String floor;
         String fridge;
 
+        // STEP => 6
         //constructor with mandatory attribute
         public HouseBuilder(String brick, String cement, String sand) {
             this.brick = brick;
@@ -31,6 +49,7 @@ class House {
             this.sand = sand;
         }
 
+        // STEP => 7
         //setters for setting optional properties
         // returning this because so we can chain the method's
         public HouseBuilder setPaint(String paint) {
@@ -48,9 +67,20 @@ class House {
             return this;
         }
 
+        // STEP => 8
         public House build() {
 
-            return new House();
+            //calling constructor of House with object of HouseBuilder
+            return new House(new HouseBuilder(this.brick, this.cement, this.sand));
         }
+    }
+}
+
+class BuilderMain {
+    public static void main(String[] args) {
+
+        //building
+        House house = new House.HouseBuilder("AKR", "Ambuja", "White").build();
+
     }
 }
