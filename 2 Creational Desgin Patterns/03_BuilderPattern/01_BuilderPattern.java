@@ -2,15 +2,15 @@ class House {
 
     // STEP => 1
     //mandatory attribute
-    String brick;
-    String cement;
-    String sand;
+    private String brick;
+    private String cement;
+    private String sand;
 
     // STEP => 2
     //optional attribute
-    String paint;
-    String floor;
-    String fridge;
+    private String paint;
+    private String floor;
+    private String fridge;
 
     // STEP => 10
     //constructor that will get HouseBuilder object and using that object you set all the attributes.
@@ -31,15 +31,15 @@ class House {
         // STEP => 4
         // copy above attributes
         //mandatory attribute
-        String brick;
-        String cement;
-        String sand;
+        private String brick;
+        private String cement;
+        private String sand;
 
         // STEP => 5
         //optional attribute
-        String paint;
-        String floor;
-        String fridge;
+        private String paint;
+        private String floor;
+        private String fridge;
 
         // STEP => 6
         //constructor with mandatory attribute
