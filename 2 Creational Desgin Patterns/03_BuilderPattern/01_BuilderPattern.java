@@ -13,9 +13,9 @@ class House {
     String fridge;
 
     // STEP => 10
-    //constructor that will get HouseBuilder object and using that object you set all the attributes
+    //constructor that will get HouseBuilder object and using that object you set all the attributes.
     // HouseBuilder object will contain all the mandatory and optional attributes.
-    // missing optional attributes will be NULL
+    // missing optional attributes will be NULL.
     private House(HouseBuilder houseBuilder) {
         this.brick = houseBuilder.brick;
         this.cement = houseBuilder.cement;
@@ -70,9 +70,11 @@ class House {
         // STEP => 8
         public House build() {
 
-            //calling constructor of House with object of HouseBuilder
-            return new House(new HouseBuilder(this.brick, this.cement, this.sand));
+            //calling constructor of House with object of HouseBuilder (this refers to object of HouseBuilder)
+            return new House(this); // this => HouseBuilder object
         }
+        //this method can be called only when the object is created. And this keyword will
+        //refer to that HouseBuilder object.
     }
 }
 
