@@ -80,7 +80,7 @@ class LandAnimalFactory extends AnimalFactory {
     }
 }
 
-////sub category factory
+//sub category factory
 class SeaAnimalFactory extends AnimalFactory {
 
     @Override
