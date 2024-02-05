@@ -75,7 +75,7 @@ class CacheStore {
 
     static public void StoreInCache(Department department) {
 
-        // in the getFromCache(String type) methods we mocked storage
+        //in the getFromCache(String type) methods we mocked storage
 
         //use any specific key in this way u cant keep multiple instances
         CacheStore.cache.put(department.getDepartmentType(), department);
