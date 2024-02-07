@@ -1,6 +1,7 @@
 import java.util.HashMap;
 import java.util.Map;
 
+//implementing Cloneable interface so we can clone them
 interface IDepartment extends Cloneable {
     String getRank();
 
@@ -37,9 +38,15 @@ abstract class Department implements IDepartment {
     public void setDepType(String depType) {
         this.depType = depType;
     }
+
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        return super.clone();
+    }
 }
 
 class CSEDep extends Department {
+
 }
 
 class ESCDep extends Department {
@@ -55,19 +62,25 @@ class CacheStore {
     }
 
 
-    static public Object getFromCache(String type) {
+    static public Object getFromCache(String type) throws CloneNotSupportedException {
 
 
         // mocking added some object in cache
         var cse = new CSEDep();
         cse.setRank("12");
         cse.setDepType("CSE");
-        CacheStore.StoreInCache(cse);
+
+        //cloning the object and storing in the cache
+        var cloneCSE = cse.clone();
+        CacheStore.StoreInCache((Department) cloneCSE);
 
         var esc = new ESCDep();
         esc.setRank("2");
         esc.setDepType("ESC");
-        CacheStore.StoreInCache(esc);
+
+        //cloning and storing object in the cache
+        var cloneESC = esc.clone();
+        CacheStore.StoreInCache((Department) cloneESC);
 
         return CacheStore.cache.get(type);
     }
@@ -83,7 +96,7 @@ class CacheStore {
 }
 
 class PrototypeMain {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws CloneNotSupportedException {
 
         //loading stuff from cache
         var setting = CacheStore.loadFromCache();
