@@ -63,7 +63,7 @@ class MANG implements IJobChain {
             System.out.println("selected for the MANG");
         } else {
 
-            //calling for next solution
+            //calling for next chain for solution
             jobChain.hireApplicant(person);
         }
     }
