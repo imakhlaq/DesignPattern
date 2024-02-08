@@ -41,12 +41,14 @@ interface IJobChain {
     //method that is used to set next handler
     void setNextChain(IJobChain jobChain);
 
-    //the logic to do the work and in else condition call hire applicant
+    //the logic to do the work and in else condition call hire applicant on the person
     void hireApplicant(Person person);
 }
 
+//sol1
 class MANG implements IJobChain {
 
+    //jobChain that will be injected throw set nextChain method
     private IJobChain jobChain;
 
     @Override
@@ -60,12 +62,15 @@ class MANG implements IJobChain {
         if (person.skills.contains("dsa")) {
             System.out.println("selected for the MANG");
         } else {
+
+            //calling for next solution
             jobChain.hireApplicant(person);
         }
     }
 
 }
 
+//sol2
 class Product implements IJobChain {
 
     private IJobChain jobChain;
@@ -81,11 +86,13 @@ class Product implements IJobChain {
         if (person.skills.contains("Product")) {
             System.out.println("selected from Product");
         } else {
+
             this.jobChain.hireApplicant(person);
         }
     }
 }
 
+//sol3
 class Service implements IJobChain {
 
     private IJobChain jobChain;
@@ -114,6 +121,12 @@ class ChainOfResponsiblity {
         Product product = new Product();
         Service service = new Service();
 
+        // MANG -> Product -> Service
+        /*
+        if mang does not work call for the product and product does not work call for the service.
+        NOTE: one must be correct soln.
+         */
+        //setting the next chain. if current doesn't apply
         mang.setNextChain(product);
         product.setNextChain(service);
 
