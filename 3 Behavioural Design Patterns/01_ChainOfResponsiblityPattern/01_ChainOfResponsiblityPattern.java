@@ -53,7 +53,7 @@ class MANG implements IJobChain {
 
     @Override
     public void setNextChain(IJobChain jobChain) {
-
+//assigning the next jobchain
         this.jobChain = jobChain;
     }
 
@@ -126,7 +126,7 @@ class ChainOfResponsiblity {
         if mang does not work call for the product and product does not work call for the service.
         NOTE: one must be correct soln.
          */
-        //setting the next chain. if current doesn't apply
+        //setting the next chain. if current doesn't work
         mang.setNextChain(product);
         product.setNextChain(service);
 
