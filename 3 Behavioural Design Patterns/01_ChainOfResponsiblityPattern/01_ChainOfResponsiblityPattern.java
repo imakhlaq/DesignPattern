@@ -36,10 +36,12 @@ class Person implements IApplicant {
     }
 }
 
-//the 
+//the handler interface
 interface IJobChain {
+    //method that is used to set next handler
     void setNextChain(IJobChain jobChain);
 
+    //the logic to do the work and in else condition call hire applicant
     void hireApplicant(Person person);
 }
 
