@@ -32,7 +32,6 @@ class Person implements IApplicant {
         if (skills.isEmpty()) return false;
 
         this.skills.addAll(skills);
-
         return true;
     }
 }
