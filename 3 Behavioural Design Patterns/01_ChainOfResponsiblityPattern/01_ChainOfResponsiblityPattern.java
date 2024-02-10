@@ -1,6 +1,7 @@
 import java.util.LinkedList;
 import java.util.List;
 
+//it is used to replace if else hell
 interface IApplicant {
     boolean setDetails(String name, Integer age, String email);
 
