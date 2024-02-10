@@ -53,7 +53,7 @@ class MANG implements IJobChain {
 
     @Override
     public void setNextChain(IJobChain jobChain) {
-//assigning the next jobchain
+        //assigning the next jobchain
         this.jobChain = jobChain;
     }
 
