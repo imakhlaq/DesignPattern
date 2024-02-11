@@ -9,11 +9,14 @@ interface ICourse {
     void unregister(IObserverStudent student);
 
     //method to notify all the students (observers)
-    void notifyObservers();
+    void notifyAllObservers();
 
     //method to allow students (observers) to fetch the info
     //student can call and ask about the class
     String getUpdated(IObserverStudent student);
+
+    //to update the topic
+    void setStudyTopic(String topic);
 }
 
 //interface for the subscriber
@@ -35,11 +38,15 @@ interface IObserverStudent {
 //class for the individual student
 class CourseSubscriber implements IObserverStudent {
 
-    //name for the topic
-    private String topic;
+    //name of student
+    private String name;
 
     //to what its subscribing
     ICourse college;
+
+    CourseSubscriber(String name) {
+        this.name = name;
+    }
 
     @Override
     public void update() {
@@ -60,7 +67,7 @@ class CourseSubscriber implements IObserverStudent {
     @Override
     public String getName() {
         //name of the topic
-        return this.topic;
+        return this.name;
     }
 }
 
@@ -68,6 +75,7 @@ class CourseSubscriber implements IObserverStudent {
 class CSE implements ICourse {
 
     List<IObserverStudent> allStudents = new LinkedList<>();
+    String topic;
 
     @Override
     public void register(IObserverStudent student) {
@@ -83,9 +91,9 @@ class CSE implements ICourse {
     }
 
     @Override
-    public void notifyObservers() {
+    public void notifyAllObservers() {
         for (IObserverStudent student : allStudents) {
-            System.out.println("Today topic is " + student.getName());
+            student.update();
         }
     }
 
@@ -93,14 +101,42 @@ class CSE implements ICourse {
     public String getUpdated(IObserverStudent student) {
 
         if (allStudents.contains(student)) {
-            System.out.println("Today topic is " + student.getName());
+            System.out.println(student.getName() + " Today's topic is " + this.topic);
         }
-        return null;
+        return this.topic;
+    }
+
+    // to update the topic
+    public void setStudyTopic(String topic) {
+        this.topic = topic;
+
+        // and when set the topic we need to notify all observers
+        this.notifyAllObservers();
     }
 }
 
 class ObserverMain {
     public static void main(String[] args) {
+
+        ICourse cse = new CSE();
+        cse.setStudyTopic("kentai");
+
+        IObserverStudent akhlaq = new CourseSubscriber("akhlaq");
+        //registering student (observers) to a class
+        cse.register(akhlaq);
+
+        // attaching which class a student belong to
+        akhlaq.setClass(cse);
+
+        IObserverStudent dilsad = new CourseSubscriber("dilshad");
+        cse.register(dilsad);
+        dilsad.setClass(cse);
+
+        IObserverStudent hesham = new CourseSubscriber("hesham");
+        hesham.setClass(cse);
+        cse.register(hesham);
+
+        cse.setStudyTopic("hentai");
 
     }
 }
