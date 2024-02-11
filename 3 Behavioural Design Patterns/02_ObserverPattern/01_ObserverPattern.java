@@ -1,5 +1,6 @@
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Scanner;
 
 interface ICourse {
     //method to register a student (subscribing / adding observer)
@@ -54,9 +55,8 @@ class CourseSubscriber implements IObserverStudent {
         In the gmail u have option to fetch the updated data.
         (i.e. the mail u got latest)
          */
-        String collegePlan = college.getUpdated(this);
-        System.out.println("fetching... The college plan");
-        System.out.println("It is " + collegePlan);
+        String toDaysTopic = college.getUpdated(this);
+        System.out.println(this.name + "Today's topic is " + toDaysTopic);
     }
 
     @Override
@@ -136,7 +136,15 @@ class ObserverMain {
         hesham.setClass(cse);
         cse.register(hesham);
 
-        cse.setStudyTopic("hentai");
+        cse.setStudyTopic("DataStructure And Algorithms");
+
+     /*   do {
+            System.out.println("Change the Topic of class");
+            Scanner sc = new Scanner(System.in);
+            String topic = sc.nextLine();
+            cse.setStudyTopic(topic);
+
+        } while (false);*/
 
     }
 }
