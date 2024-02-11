@@ -1,3 +1,6 @@
+import java.util.LinkedList;
+import java.util.List;
+
 interface ICourse {
     //method to register a student (subscribing / adding observer)
     void register(IObserverStudent student);
@@ -35,7 +38,7 @@ class CourseSubscriber implements IObserverStudent {
     //name for the topic
     private String topic;
 
-    // to what its subscribing
+    //to what its subscribing
     ICourse college;
 
     @Override
@@ -62,3 +65,42 @@ class CourseSubscriber implements IObserverStudent {
 }
 
 // class for all the subscribers/ students that is enrolled in the class
+class CSE implements ICourse {
+
+    List<IObserverStudent> allStudents = new LinkedList<>();
+
+    @Override
+    public void register(IObserverStudent student) {
+        allStudents.add(student);
+        System.out.println(student.getName() + " is registered");
+    }
+
+    @Override
+    public void unregister(IObserverStudent student) {
+        allStudents.remove(student);
+        System.out.println(student.getName() + " is unregistered");
+
+    }
+
+    @Override
+    public void notifyObservers() {
+        for (IObserverStudent student : allStudents) {
+            System.out.println("Today topic is " + student.getName());
+        }
+    }
+
+    @Override
+    public String getUpdated(IObserverStudent student) {
+
+        if (allStudents.contains(student)) {
+            System.out.println("Today topic is " + student.getName());
+        }
+        return null;
+    }
+}
+
+class ObserverMain {
+    public static void main(String[] args) {
+
+    }
+}
