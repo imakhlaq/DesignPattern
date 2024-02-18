@@ -19,6 +19,13 @@ class CreditCard implements IPayment {
 
 //Strategy #2
 class DebitCard implements IPayment {
+
+    /* NOTE : u can have a variable that can be of particular type and can have specific info like
+     card number, exp date, pin in case of debit / credit and upi id in case of upi.
+     and this variable can be inisilized by passing in the constructor of class. And u can use it
+     in the payNow method.
+
+     */
     @Override
     public boolean payNow(String details) {
 
@@ -37,6 +44,14 @@ class NetBanking implements IPayment {
 
 //Strategy #3
 class UPI implements IPayment {
+
+    /* NOTE : u can have a variable that can be of particular type and can have specific info like
+     card number, exp date, pin in case of debit / credit and upi id in case of upi.
+     and this variable can be inisilized by passing in the constructor of class. And u can use it
+     in the payNow method.
+
+     */
+
     @Override
     public boolean payNow(String details) {
         return true;
