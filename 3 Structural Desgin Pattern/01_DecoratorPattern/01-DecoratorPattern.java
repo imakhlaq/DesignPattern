@@ -49,7 +49,7 @@ class CheesePizzaDecorator extends BasePizzaDecorator {
         //first basic pizza will be created and then u can make addition
         super.makePizza();
 
-        this.addCheese();
+        //  this.addCheese();
     }
 
     // by these methods we are adding more functionality to base object (decorating)
@@ -64,11 +64,11 @@ class CheesePizzaDecorator extends BasePizzaDecorator {
     // add more methods to customize the pizza object
 }
 
-class VegPizza extends BasePizzaDecorator {
+class VegPizzaDecorator extends BasePizzaDecorator {
 
     protected IPizza pizza;
 
-    VegPizza(IPizza pizza) {
+    VegPizzaDecorator(IPizza pizza) {
         super(pizza);
         this.pizza = pizza;
     }
@@ -78,7 +78,7 @@ class VegPizza extends BasePizzaDecorator {
         // to make special pizza u need base pizza, so we are calling make pizza method
         super.makePizza();
 
-        this.addVeggies();
+        //this.addVeggies();
     }
 
     // by these methods we are adding more functionality to base object (decorating)
@@ -97,6 +97,15 @@ class DecoratorMain {
     public static void main(String[] args) {
 
         //customer adds veg pizza with cheese
+        VegPizzaDecorator pizza = new VegPizzaDecorator(new BasePizza());
+        pizza.makePizza();
+        pizza.addCheese();
+
+        //customer order pizza with veggies and cheese
+        CheesePizzaDecorator cheesePizzaDecorator = new CheesePizzaDecorator(new BasePizza());
+        cheesePizzaDecorator.makePizza();
+        cheesePizzaDecorator.addCheese();
+        cheesePizzaDecorator.veggies();
 
 
     }
