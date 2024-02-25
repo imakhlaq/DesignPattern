@@ -1,5 +1,6 @@
 interface IPizza {
 
+    //all the special methods that will be added need to be called in this method
     void makePizza();
 }
 
@@ -8,16 +9,17 @@ class BasePizza implements IPizza {
 
     @Override
     public void makePizza() {
-        System.out.println("making normal pizzza");
+        System.out.println("making normal pizza");
     }
 }
 
 //Base Pizza Decorator class
-class BasePizzaDecorator implements IPizza {
+// u dont need to create class of basic decorator
+abstract class BasePizzaDeco implements IPizza {
 
     protected IPizza pizza;
 
-    BasePizzaDecorator(IPizza pizza) {
+    BasePizzaDeco(IPizza pizza) {
         this.pizza = pizza;
     }
 
@@ -34,11 +36,11 @@ class BasePizzaDecorator implements IPizza {
 }
 
 // Cheese Pizza Decorator class
-class CheesePizzaDecorator extends BasePizzaDecorator {
+class CheesePizzaDeco extends BasePizzaDeco {
 
     protected IPizza pizza;
 
-    CheesePizzaDecorator(IPizza pizza) {
+    CheesePizzaDeco(IPizza pizza) {
         // we need a base pizza to customize a pizza
         super(pizza);
         this.pizza = pizza;
@@ -53,22 +55,22 @@ class CheesePizzaDecorator extends BasePizzaDecorator {
     }
 
     // by these methods we are adding more functionality to base object (decorating)
-    public void addCheese() {
+    private void addCheese() {
         System.out.println("Adding cheese to pizza");
     }
 
-    public void veggies() {
+    private void veggies() {
         System.out.println("Adding cheese to veggies");
     }
 
     // add more methods to customize the pizza object
 }
 
-class VegPizzaDecorator extends BasePizzaDecorator {
+class VegPizzaDeco extends BasePizzaDeco {
 
     protected IPizza pizza;
 
-    VegPizzaDecorator(IPizza pizza) {
+    VegPizzaDeco(IPizza pizza) {
         super(pizza);
         this.pizza = pizza;
     }
@@ -82,14 +84,17 @@ class VegPizzaDecorator extends BasePizzaDecorator {
     }
 
     // by these methods we are adding more functionality to base object (decorating)
-    public void addCheese() {
+    private void addCheese() {
         System.out.println("Adding cheese to pizza");
     }
 
-    public void addVeggies() {
+    private void addVeggies() {
         System.out.println("Adding cheese to pizza");
     }
 
+    private void addChicken() {
+        System.out.println("Adding cheese to chicken");
+    }
     // add more methods to customize the pizza object
 }
 
@@ -97,17 +102,14 @@ class DecoratorMain {
     public static void main(String[] args) {
 
         //customer adds veg pizza with cheese
-        VegPizzaDecorator pizza = new VegPizzaDecorator(new BasePizza());
-        pizza.makePizza();
-        pizza.addCheese();
+        IPizza vegPizza = new VegPizzaDeco(new BasePizza());
+        vegPizza.makePizza();
 
         //customer order pizza with veggies and cheese
-        CheesePizzaDecorator cheesePizzaDecorator = new CheesePizzaDecorator(new BasePizza());
-        cheesePizzaDecorator.makePizza();
-        cheesePizzaDecorator.addCheese();
-        cheesePizzaDecorator.veggies();
+        IPizza cheesePizzaDeco = new CheesePizzaDeco(new BasePizza());
+        cheesePizzaDeco.makePizza();
 
-        //passing cheesePizza in the vegPizza
+        //passing cheesePizza in the vegPizza + chicken too
 
 
     }
