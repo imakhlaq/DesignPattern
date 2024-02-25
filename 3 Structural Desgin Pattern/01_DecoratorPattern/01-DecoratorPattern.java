@@ -107,6 +107,8 @@ class DecoratorMain {
         cheesePizzaDecorator.addCheese();
         cheesePizzaDecorator.veggies();
 
+        //passing cheesePizza in the vegPizza
+
 
     }
 }
