@@ -51,7 +51,9 @@ class CheesePizzaDeco extends PizzaDeco {
         //first basic pizza will be created and then u can make addition
         super.makePizza();
 
-        //  this.addCheese();
+        //adding cheese
+        this.addCheese();
+
     }
 
     // by these methods we are adding more functionality to base object (decorating)
@@ -80,7 +82,8 @@ class VegPizzaDeco extends PizzaDeco {
         // to make special pizza u need base pizza, so we are calling make pizza method
         super.makePizza();
 
-        //this.addVeggies();
+        //add veggies
+        this.addVeggies();
     }
 
     // by these methods we are adding more functionality to base object (decorating)
