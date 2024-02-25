@@ -15,11 +15,11 @@ class BasePizza implements IPizza {
 
 //Base Pizza Decorator class
 // u dont need to create class of basic decorator
-abstract class BasePizzaDeco implements IPizza {
+abstract class PizzaDeco implements IPizza {
 
     protected IPizza pizza;
 
-    BasePizzaDeco(IPizza pizza) {
+    PizzaDeco(IPizza pizza) {
         this.pizza = pizza;
     }
 
@@ -36,7 +36,7 @@ abstract class BasePizzaDeco implements IPizza {
 }
 
 // Cheese Pizza Decorator class
-class CheesePizzaDeco extends BasePizzaDeco {
+class CheesePizzaDeco extends PizzaDeco {
 
     protected IPizza pizza;
 
@@ -66,7 +66,7 @@ class CheesePizzaDeco extends BasePizzaDeco {
     // add more methods to customize the pizza object
 }
 
-class VegPizzaDeco extends BasePizzaDeco {
+class VegPizzaDeco extends PizzaDeco {
 
     protected IPizza pizza;
 
@@ -106,8 +106,8 @@ class DecoratorMain {
         vegPizza.makePizza();
 
         //customer order pizza with veggies and cheese
-        IPizza cheesePizzaDeco = new CheesePizzaDeco(new BasePizza());
-        cheesePizzaDeco.makePizza();
+        IPizza cheesePizza = new CheesePizzaDeco(new BasePizza());
+        cheesePizza.makePizza();
 
         //passing cheesePizza in the vegPizza + chicken too
 
