@@ -2,12 +2,15 @@
 Common abstract class for the Customer and admin because they share "some" similar attributes.
  */
 public abstract class User {
-    // Private because of encapsulation
-    private Long id;
-    private String name;
-    private String Address;
-    private Integer phoneNo;
+    //private because we want to access in a class that will extend this class.
+    //so child class can access these field's
+    protected Long id;
+    protected String name;
+    protected String Address;
+    protected Integer phoneNo;
 
+
+    //initializing the attributes
     public User(Long id, String name, String address, Integer phoneNo) {
         this.id = id;
         this.name = name;
@@ -15,6 +18,7 @@ public abstract class User {
         this.phoneNo = phoneNo;
     }
 
+    //getters and setters for access control (encapsulation)
     public Long getId() {
         return id;
     }

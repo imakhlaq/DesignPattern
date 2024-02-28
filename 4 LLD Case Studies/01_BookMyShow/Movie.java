@@ -10,6 +10,7 @@ public class Movie {
     private String cast;
     private Language language;
 
+    // initializing the attributes
     public Movie(Long id, String name, String description, Double duration, LocalDate realiseDate, String cast, Language language) {
         this.id = id;
         this.name = name;
@@ -20,6 +21,7 @@ public class Movie {
         this.language = language;
     }
 
+    //getters and setters for access control (encapsulation)
     public Long getId() {
         return id;
     }
