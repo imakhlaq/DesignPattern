@@ -1,5 +1,7 @@
+package entities;
+
 /*
-Common abstract class for the Customer and admin because they share "some" similar attributes.
+Common abstract class for the entities.Customer and admin because they share "some" similar attributes.
  */
 public abstract class User {
     //private because we want to access in a class that will extend this class.
